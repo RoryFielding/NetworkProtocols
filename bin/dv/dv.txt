@@ -1,0 +1,30 @@
+random.seed 1234567880
+network.size 99
+simulation.cycles 10
+
+protocol.lnk IdleProtocol
+protocol.dv dv.DistanceVectorProtocol
+protocol.dv.linkable lnk
+
+#init.wire WireKOut
+
+init.wire WireFromFile
+init.wire.file Graphs/Internet.graph
+
+init.wire.undir 
+init.wire.k 2
+init.wire.protocol lnk #uses this protocol to wire
+
+init.costinit dv.DVInitialise
+init.costinit.protocol dv
+init.costinit.linkable lnk
+
+include.init wire costinit
+
+control.total dv.DVObserver
+control.total.protocol dv
+
+control.print dv.GraphPrinter
+control.print.undir
+control.print.protocol dv
+control.print.outf InternetGraphs/graph

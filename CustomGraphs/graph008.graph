@@ -1,0 +1,7 @@
+// M. Ayiad, Tue Mar 27 11:26:32 BST 2018 
+graph random { ratio="fill"; margin=0; 
+   0 -- 1 [dir=both, label=2];
+   0 -- 2 [dir=both, label=15];
+   0 -- 3 [dir=both, label=6];
+   0 -- 4 [dir=both, label=14];
+ }
